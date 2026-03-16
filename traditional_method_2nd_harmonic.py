@@ -1,9 +1,9 @@
 """
-Name: Project_1_Numerical_Solution.py
+Name: traditional_method_2nd_harmonic.py
 Author: Nathan Erickson
 EMail: nathan.erickson@student.nmt.edu
-Description: Solves the 1D wave equation for a standing wave numerically 
-			 using the leapfrog method
+Description: This is an extension of traditional_method.py.
+			 It's the same thing, but for a second harmonic standing wave
 
 """
 
@@ -45,7 +45,8 @@ dt = 1/inv_dt
 
 #Initialize displacement array
 u = np.zeros((nt, nx))
-u[0] = np.sin(pi * x)
+#Here the wave oscilates twice as fast
+u[0] = np.sin(2* pi * x)
 
 #Begin timing
 start = time.time()
@@ -93,7 +94,7 @@ for i in range(nt - 1):
 #Use u(x,t) = sin(pi*x)*cos(c*pi*t) for analytical solution
 u_ana = np.zeros((nt, nx))
 for i in range(nt):
-	u_ana[i] = np.sin(pi*x) * np.cos(c*pi*dt*i)
+	u_ana[i] = np.sin(2*pi*x) * np.cos(2*c*pi*dt*i)
 
 #Compare Results
 error = np.abs(u_ana - u)
@@ -111,7 +112,7 @@ print(f"\nThe simulation took {runtime:.3e} seconds to run.\n")
 
 ### PLOT RESULTS ###
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(10,6))
-fig.suptitle("Numerical Solution")
+fig.suptitle("2nd Harmonic Numerical Solution")
 
 #Numerical solution
 im1 = ax1.imshow(u.T, extent=[0, max_t, max_x, 0], aspect='auto', cmap='RdBu')
@@ -128,7 +129,7 @@ ax2.set_ylabel("Space")
 fig.colorbar(im2, ax=ax2, label="Amplitude")
 
 #Error
-im3 = ax3.imshow(residuals.T, extent=[0, max_t, max_x, 0], aspect='auto', 
+im3 = ax3.imshow(error.T, extent=[0, max_t, max_x, 0], aspect='auto', 
                  cmap='Reds')
 ax3.set_title("Error")
 ax3.set_xlabel("Time")
