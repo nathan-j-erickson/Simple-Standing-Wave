@@ -37,7 +37,7 @@ class WavePINN(nn.Module):
 		Output: u (1D)
 	"""
 
-	def __init__(self, hidden_layers = 4, neurons_per_layer=20):
+	def __init__(self, hidden_layers = 4, neurons_per_layer=30):
 		
 		super(WavePINN, self).__init__()
 
@@ -338,7 +338,7 @@ dt = 1/inv_dt
 
 
 # Create model
-model = WavePINN(hidden_layers=4, neurons_per_layer=20)
+model = WavePINN(hidden_layers=4, neurons_per_layer=30)
 
 # Count parameters
 num_params = sum(p.numel() for p in model.parameters())
