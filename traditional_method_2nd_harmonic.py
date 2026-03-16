@@ -94,6 +94,8 @@ for i in range(nt - 1):
 #Use u(x,t) = sin(pi*x)*cos(c*pi*t) for analytical solution
 u_ana = np.zeros((nt, nx))
 for i in range(nt):
+
+	#Note that we also have the factor of here too
 	u_ana[i] = np.sin(2*pi*x) * np.cos(2*c*pi*dt*i)
 
 #Compare Results
