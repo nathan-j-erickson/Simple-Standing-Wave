@@ -1,8 +1,8 @@
 """
-Name: Project_1_PINN_Solution.py
+Name: PINN_method.py
 Author: Nathan Erickson
 EMail: nathan.erickson@student.nmt.edu
-Description: Solves the 1D wave equation for a standing wave using a PINN
+Description: Solves the 1D wave equation for a 1st harmonic standing wave using a PINN
 
 """
 

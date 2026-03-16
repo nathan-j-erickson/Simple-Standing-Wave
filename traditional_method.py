@@ -1,9 +1,9 @@
 """
-Name: Project_1_Numerical_Solution.py
+Name: traditional_method.py
 Author: Nathan Erickson
 EMail: nathan.erickson@student.nmt.edu
-Description: Solves the 1D wave equation for a standing wave numerically 
-			 using the leapfrog method
+Description: Solves the 1D wave equation for a 1st harmonic standing wave 
+			 numerically using the leapfrog method
 
 """
 
