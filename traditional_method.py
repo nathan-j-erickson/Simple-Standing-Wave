@@ -128,7 +128,7 @@ ax2.set_ylabel("Space")
 fig.colorbar(im2, ax=ax2, label="Amplitude")
 
 #Error
-im3 = ax3.imshow(residuals.T, extent=[0, max_t, max_x, 0], aspect='auto', 
+im3 = ax3.imshow(error.T, extent=[0, max_t, max_x, 0], aspect='auto', 
                  cmap='Reds')
 ax3.set_title("Error")
 ax3.set_xlabel("Time")
