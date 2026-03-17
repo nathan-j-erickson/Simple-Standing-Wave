@@ -33,11 +33,11 @@ class WavePINN(nn.Module):
 	
 	Architechture:
 		Input: [x, t]
-		Hidden: 4 layers with 20 neurons each
+		Hidden: 4 layers with 25 neurons each
 		Output: u (1D)
 	"""
 
-	def __init__(self, hidden_layers = 4, neurons_per_layer=30):
+	def __init__(self, hidden_layers = 4, neurons_per_layer=25):
 		
 		super(WavePINN, self).__init__()
 
@@ -143,7 +143,7 @@ def compute_pde_residual(model, x, t, c):
 
 
 #Create Training Data
-def create_training_data(n_domain=3800, n_boundary=400, n_initial=800):
+def create_training_data(n_domain=1000, n_boundary=100, n_initial=200):
 	"""
 	Create collocation points for training
 
@@ -338,7 +338,7 @@ dt = 1/inv_dt
 
 
 # Create model
-model = WavePINN(hidden_layers=4, neurons_per_layer=30)
+model = WavePINN(hidden_layers=4, neurons_per_layer=25)
 
 # Count parameters
 num_params = sum(p.numel() for p in model.parameters())
@@ -361,7 +361,7 @@ print("(Should be close to 0 after training!)")
 
 #Create training data
 print("Gathering Training Data...")
-data = create_training_data(n_domain=1000, n_boundary=100, n_initial=100)
+data = create_training_data(n_domain=1000, n_boundary=200, n_initial=200)
 print("Training Data Initialized")
 
 
@@ -421,7 +421,6 @@ axes[1].legend(fontsize=10)
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('training_history.png', dpi=150)
 plt.show()
 
 
